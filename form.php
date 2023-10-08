@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Form Mahasiswa</h1>
-    <form action="proses.php" method="get" enctype="multipart/form-data">
+    <form action="index.php" method="get" enctype="multipart/form-data">
         <input type="text" name="nim" />
         <input type="text" name="nama" />
         <input type="text" name="prodi" />

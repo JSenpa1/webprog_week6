@@ -1,3 +1,8 @@
+<?php
+    $filename = $_FILES['foto']['name'];
+    echo $filename;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +11,5 @@
     <title>Document</title>
 </head>
 <body>
-    
 </body>
 </html>
