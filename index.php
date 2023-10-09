@@ -1,18 +1,38 @@
 <?php
+
+    //database
     $connectDatabase = new mysqli("localhost", "root", "", "data_mahasiswa");
     $dns = "mysql:host=localhost;dbname=data_mahasiswa";
     $kunci = new PDO($dns, "root", "");
-
     $sql = "SELECT * FROM mahasiswa";
-
     $hasil = $kunci->query($sql);
+
+    //get post
+    if(isset($_POST['nim']))
+    {
+        $nim = $_POST['nim'];
+        $nama = $_POST['nama'];
+        $prodi = $_POST['prodi'];
+        $filename = $_FILES['foto']['name'];
+        $temp_file = $_FILES['foto']['tmp_name'];
+        move_uploaded_file($temp_file, "./{$filename}");
+        //bikin sqlAdd: buat nambahin ke database pake INSERT INTO 
+        // $sqlAdd = ""
+    }
+
+
+    //if(isset($nim))
+    //$sqlAdd
+
+    //if(isset($nimUpdate)
+    //$sqlUpdate
+
+    //if(isset($nimDelete))
+    //sqlDelete
 
     // echo "<pre>";
     // $row = $hasil->fetch(PDO::FETCH_ASSOC);
     // var_dump($row);
-    
-    $filename = $_FILES['foto']['name'];
-    echo $filename;
 ?>
 
 <!DOCTYPE html>
@@ -42,12 +62,17 @@
             <td><?= $row['nama'] ?></td>
             <td><?= $row['prodi'] ?></td>
             <td><img src="<?= $row['foto'] ?>" /></td>
-            <td><a href="#">Edit </a><a href="#">Delete</a> </td>
+            <td>
+                <button onclick="window.location.href='edit.php?nim=<?= $row['nim'] ?>'">Edit</button> 
+                <br />
+                <button onclick="window.location.href='delete.php?nim=<?= $row['nim'] ?>'" name="delete">Delete</button> 
+            </td>
         </tr>
 
         <?php
             }
         ?>
     </table>
+    <a href="form.php">Add Mahasiswa to Database</a>
 </body>
 </html>
