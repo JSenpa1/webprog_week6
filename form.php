@@ -7,11 +7,19 @@
 </head>
 <body>
     <h1>Form Mahasiswa</h1>
-    <form action="index.php" method="get" enctype="multipart/form-data">
+    <form action="index.php" method="post" enctype="multipart/form-data">
+        <label>Nim</label>
         <input type="text" name="nim" />
+        <br />
+        <label>nama</label>
         <input type="text" name="nama" />
+        <br />
+        <label>prodi</label>
         <input type="text" name="prodi" />
+        <br />
+        <label>foto</label>
         <input type="file" name="foto" />
+        <br />
         <button type="submit">Submit</button>
     </form>
 </body>
