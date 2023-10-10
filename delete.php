@@ -1,4 +1,23 @@
-<?
+<?php
+
+function phpAlert($tempNim)
+{
+    echo '<script type="text/javascript">alert("' . $tempNim . '");location="index.php"</script>';
+}
+
+if(isset($_GET['nim']))
+{
+    $nim = $_GET['nim'];
+    $tempNim = $_GET['nim'];
+    $dns = "mysql:host=localhost;dbname=data_mahasiswa";
+    $kunci = new PDO($dns, "root", "");
+
+    $sqlDelete = "DELETE FROM mahasiswa WHERE nim = '$nim'";
+    $hasil = $kunci->query($sqlDelete);
+    phpAlert("Data ". $tempNim . " sudah di delete");
+    var_dump($tempNim);
+}
+
 
 //sqlDelete
 
